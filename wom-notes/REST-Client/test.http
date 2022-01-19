@@ -1,39 +1,7 @@
-@baseURL=http://localhost:8080
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTQ4Mzc0MTAyY2Q1MTllYWRiZjE1NzUiLCJlbWFpbCI6ImFuZHJlc0Bpbmllc3RhLmNvbSIsImlhdCI6MTYzMjIyMzU5MSwiZXhwIjoxNjMyMzA5OTkxfQ.9ahwQ2ViD2VkdAf7ljV7j3i1YJ9M1Dp5CloTQ1E4sBY
+@remoteUrl=http://127.0.0.1:5000/
 
+### GET
+GET {{remoteUrl}}
 
-GET {{baseURL}}
-
-###
-
-GET {{baseURL}}/notes
-Authorization: Bearer {{token}}
-###
-
-GET {{baseURL}}/notes/archived
-Authorization: Bearer {{token}}
-###
-
-POST {{baseURL}}/notes
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-{
-    "text": "Köp kex"
-}
-
-###
-
-GET  {{baseURL}}/notes/61481bb14fa7bd2c3e47c86a
-
-###
-PUT  {{baseURL}}/notes/61481a964fa7bd2c3e47c864
-Content-Type: application/json
-
-{
-    "archived": true
-}
-###
-
-DELETE  {{baseURL}}/notes/61481a924fa7bd2c3e47c862
-Authorization: Bearer {{token}}
+### GET
+GET {{remoteUrl}}/notes
