@@ -1,0 +1,20 @@
+@baseUrl=http://localhost:3000
+
+### Get all products
+GET {{baseUrl}}/products
+
+### Get product by SKU
+GET {{baseUrl}}/products/123123123
+
+### Add new product
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+    "namn": "rtx 500",
+    "pris": "500",
+    "sku": 123123123
+}
+
+### Delete a product by its SKU
+DELETE {{baseUrl}}/products/123123123
