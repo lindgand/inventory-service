@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 app.get('/products', db.getProducts)
 app.get('/products/:sku', db.getProductBySku)
 app.post('/products', db.createProduct)
+app.patch('/products/:sku', db.editProduct)
 app.delete('/products/:sku', db.deleteProduct)
 
 app.listen(PORT, () => {
