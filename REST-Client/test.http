@@ -4,17 +4,35 @@
 GET {{baseUrl}}/products
 
 ### Get product by SKU
-GET {{baseUrl}}/products/123123123
+GET {{baseUrl}}/products/22345678
 
 ### Add new product
 POST {{baseUrl}}/products
 Content-Type: application/json
 
 {
-    "namn": "rtx 500",
-    "pris": "500",
-    "sku": 123123123
+    "namn": "rtx 100",
+    "pris": "200",
+    "sku": 56564982,
+    "antal": 10
+}
+
+###
+PATCH {{baseUrl}}/products/56564982
+Content-Type: application/json
+
+{
+    "pris": "3000",
+    "antal": 10
+}
+
+###
+PUT {{baseUrl}}/products/56564982/remove
+Content-Type: application/json
+
+{
+    "antal": 5
 }
 
 ### Delete a product by its SKU
-DELETE {{baseUrl}}/products/123123123
+DELETE {{baseUrl}}/products/56564982
