@@ -1,13 +1,12 @@
 require('dotenv').config()
 
-const res = require('express/lib/response')
 const { Pool } = require('pg')
 const pool = new Pool({
     user: process.env.NAME,
     host: process.env.HOST,
     database: process.env.NAME,
     password: process.env.PASSWORD,
-    port: process.env.PORT,
+    port: process.env.DB_PORT,
 })
 
 const getProducts = (req, res) => {
