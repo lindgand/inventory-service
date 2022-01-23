@@ -43,12 +43,16 @@ const createProduct = (req, res) => {
 const editProduct = (req, res) => {
     const sku = parseInt(req.params.sku)
     const { antal, pris } = req.body
-    pool.query('UPDATE lager SET antal = antal - $1, pris = $2 WHERE sku = $3 OUTPUT UPDATED*', [antal, pris, sku], (err, result) => {
+    pool.query('UPDATE lager SET antal = antal - $1, pris = $2 WHERE sku = $3', [antal, pris, sku], (err, result) => {
         if (err) {
             throw err
         }
-        
-        res.status(201).send(`Mängden av produkten ${sku} har ändrats. Ny saldo: ${result}`)
+        pool.query('SELECT antal FROM lager WHERE sku = $1', [sku], (err, result) => {
+            if (err) {
+                throw err
+            }
+            res.status(200).send(`Mängden av produkten ${sku} har ändrats. Ny saldo: ` + Object.values(result.rows[0]))
+        })
     })
 }
 
